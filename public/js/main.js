@@ -124,6 +124,40 @@ document.addEventListener("DOMContentLoaded", (event) => {
         window.location =  "http://" + window.location.host + queryParams;
     }
 
-    
+    const buttonAdd = document.getElementById("button-add-new-data");
+    let addedFormButton = 0;
+    buttonAdd.addEventListener("click", () => {
+        if(addedFormButton < 1) {
+            addNewForm();
+        } 
+        addedFormButton++;
+    });
 });
+
+function addNewForm() {
+    const tableBody = document.getElementById("table-main-body");
+    const formGroup = `
+        <tr>
+            <td class="border border-slate-300">
+                
+            </td>
+            <td class="border border-slate-300">
+                <input class="bg-blue-200 p-2 w-full" autocomplete="off" placeholder="name" name="name" id="name"> 
+            </td>
+            <td class="border border-slate-300">
+                <input class="bg-blue-200 p-2 w-full" autocomplete="off" placeholder="ex.. 100" name="posts" id="posts"> 
+            </td>
+            <td class="border border-slate-300">
+                <input class="bg-blue-200 p-2 w-full" autocomplete="off" placeholder="ex.. 1000" name="followers" id="followers"> 
+            </td>
+            <td class="border border-slate-300">
+                <input class="bg-blue-200 p-2 w-full" autocomplete="off" placeholder="email" name="email" id="email"> 
+            </td>
+            <td class="border border-slate-300">
+                <input class="bg-blue-200 p-2 w-full" autocomplete="off" placeholder="ex.. 856-0324-3332" name="phone" id="phone"> 
+            </td>
+        </tr>
+    `
+    tableBody.insertAdjacentHTML("afterbegin", formGroup);
+}
 

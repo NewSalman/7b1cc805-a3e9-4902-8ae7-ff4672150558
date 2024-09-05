@@ -1,89 +1,98 @@
 <div class="w-full p-3">
     <div class="flex flex-row" style="width: 92%;">
-        <input id="set-data-count-per-table-input"  class="bg-slate-300 px-1 py-2 rounded-sm" placeholder="show data per page" type="text" name="show-data-count" id="show-data-count">
+        <input id="set-data-count-per-table-input" class="bg-blue-200 px-1 py-2 rounded-sm" placeholder="show data per page" type="text" name="show-data-count" id="show-data-count">
         <button id="set-data-count-per-table-btn" pattern="\d*" type="submit" class="ml-1 bg-green-500 px-2 py-2 rounded-sm text-sm font-bold text-neutral-100">Apply</button>
     </div>
 </div>
+<form action="/" method="post">
+    <div class="flex flex-col items-end py-5 overflow-x-hidden">
+        <div class="button-actions px-8">
+            <button id="button-add-new-data" class="p-2 m-1 hover:bg-gray-300 rounded-full active:bg-gray-200" type="button"><img class="w-6" src="/svg/plus.svg" alt="save"></button>
+            <button class="p-2 m-1 hover:bg-gray-300 rounded-full active:bg-gray-200" type="submit"><img class="w-6" src="/svg/save.svg" alt="save"></button>
+        </div>
 
-<div class="flex flex-row items-center justify-center py-5 overflow-x-hidden">
-        <table class="table-auto border-separate border border-slate-400" style="width: 95%;">
-            <thead class="bg-slate-300 cursor-pointer">
-                <tr>
-                    <th class="p-3 border border-slate-300" id="id-table-header">
-                        <div class="relative">
-                            <div>
-                                <p class="">ID</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="id-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div>
-
-                    </th>
-                    <th class="p-3 border border-slate-300" id="name-table-header">
-                        <div class="relative">
-                            <div>
-                                <p>Name</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="name-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div>
-                    </th>
-                    <th class="p-3 border border-slate-300" id="posts-table-header">
-                        <div class="relative">
-                            <div>
-                                <p>Posts</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="posts-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div></th>
-                    <th class="p-3 border border-slate-300" id="followers-table-header">
-                        <div class="relative">
-                            <div>
-                                <p>Followers</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="followers-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div></th>
-                    <th class="p-3 border border-slate-300" id="email-table-header">
-                        <div class="relative">
-                            <div>
-                                <p>Email</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="email-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div>
-                    </th>
-                    <th class="p-3 border border-slate-300" id="phone-table-header">
-                        <div class="relative">
-                            <div>
-                                <p>Phone</p>
-                            </div>
-                            <div class="absolute translate-y-1/2 top-0 right-0">
-                                <img id="phone-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
-                            </div>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                {{#each data.result }}
+        <div class="flex flex-row items-center justify-center w-full">
+            <table class="table-auto border-separate border border-slate-400" style="width: 95%;">
+                <thead class="bg-slate-300 cursor-pointer">
                     <tr>
-                        <td class="p-3 border border-slate-300">{{this.id}}</td>
-                        <td class="p-3 border border-slate-300">{{this.name}}</td>
-                        <td class="p-3 border border-slate-300">{{this.display_posts}}</td>
-                        <td class="p-3 border border-slate-300">{{this.display_followers}}</td>
-                        <td class="p-3 border border-slate-300">{{this.email}}</td>
-                        <td class="p-3 border border-slate-300">{{this.phone}}</td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                        <th class="p-3 border border-slate-300" id="id-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p class="">ID</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="id-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div>
 
-</div>
+                        </th>
+                        <th class="p-3 border border-slate-300" id="name-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p>Name</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="name-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div>
+                        </th>
+                        <th class="p-3 border border-slate-300" id="posts-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p>Posts</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="posts-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div></th>
+                        <th class="p-3 border border-slate-300" id="followers-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p>Followers</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="followers-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div></th>
+                        <th class="p-3 border border-slate-300" id="email-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p>Email</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="email-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div>
+                        </th>
+                        <th class="p-3 border border-slate-300" id="phone-table-header">
+                            <div class="relative">
+                                <div>
+                                    <p>Phone</p>
+                                </div>
+                                <div class="absolute translate-y-1/2 top-0 right-0">
+                                    <img id="phone-table-header-icon" src="/icons/chevron-up.svg" class="w-3 hidden" alt="chevron-up">
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="table-main-body">
+                    {{#each data.result }}
+                        <tr>
+                            <td class="p-3 border border-slate-300">{{this.id}}</td>
+                            <td class="p-3 border border-slate-300">{{this.name}}</td>
+                            <td class="p-3 border border-slate-300">{{this.display_posts}}</td>
+                            <td class="p-3 border border-slate-300">{{this.display_followers}}</td>
+                            <td class="p-3 border border-slate-300">{{this.email}}</td>
+                            <td class="p-3 border border-slate-300">{{this.phone}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</form>
 
 {{{ data.links }}}

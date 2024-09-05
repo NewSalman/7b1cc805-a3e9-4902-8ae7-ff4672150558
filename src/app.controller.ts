@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query, Render, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Redirect, Render, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateAccountDTO } from './model/create-acocount-dto';
 
@@ -21,7 +21,9 @@ export class AppController {
   }
 
   @Post()
-  saveRecord(@Body() createAccountDTO: CreateAccountDTO, @Res() response) {
-
+  @Redirect("/")
+  saveRecord(@Body() createAccountDTO: CreateAccountDTO) {
+    this.appService.addRecord(createAccountDTO);
+    return "ok";
   }
 }

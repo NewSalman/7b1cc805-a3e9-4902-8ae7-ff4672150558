@@ -178,9 +178,11 @@ export class AppService {
       throw new BadRequestException("data invalid");
     }
 
-    const exists = data.filter((acc) => acc.email === createAccountDTO.email || acc.phone === acc.phone || acc.name === createAccountDTO.name)
+    const exists = data.filter((acc) => acc.email === createAccountDTO.email && acc.phone === acc.phone && acc.name === createAccountDTO.name)
 
-    if(exists.length !== 0) {
+    if(exists.length > 0) {
+
+      console.log(exists);
       throw new BadRequestException("data already exists");
     }
 
